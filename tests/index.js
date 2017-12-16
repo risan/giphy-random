@@ -118,10 +118,8 @@ test('throws error when API retruns no response', () => {
   );
 });
 
-test('throws error when request failed', () => {
-  const server = createServerWithError('foo bar');
+test('it wont cast non-request error', () => {
+  const error = new Error('foo bar');
 
-  expect.assertions(1);
-
-  return expect(giphyRandom.get()).rejects.toHaveProperty('message', 'foo bar');
+  expect(GiphyRandom.castToError(error)).toEqual(error);
 });
