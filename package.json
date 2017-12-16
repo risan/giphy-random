@@ -2,17 +2,21 @@
   "name": "giphy-random",
   "version": "1.0.1",
   "description": "A package to fetch a random GIF from Giphy API",
+  "author": {
+    "name": "Risan Bagja Pradana",
+    "email": "risanbagja@gmail.com",
+    "url": "https://risan.io"
+  },
   "main": "dist/giphy-random.cjs.js",
   "module": "dist/giphy-random.esm.js",
   "browser": "dist/giphy-random.umd.js",
-  "scripts": {
-    "build": "NODE_ENV=build rollup -c",
-    "dev": "NODE_ENV=build rollup -c -w",
-    "lint": "eslint src",
-    "lint-fix": "eslint src --fix",
-    "prepublishOnly": "npm run test && npm run build",
-    "prettier": "prettier --write '{src,tests}/**/*.js'",
-    "test": "NODE_ENV=jest jest"
+  "engines": {
+    "node": ">= 6"
+  },
+  "homepage": "https://github.com/risan/giphy-random#readme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/risan/giphy-random/issues"
   },
   "repository": {
     "type": "git",
@@ -23,12 +27,15 @@
     "giphy",
     "fun"
   ],
-  "author": "Risan Bagja Pradana <risanbagja@gmail.com> (https://risan.io)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/risan/giphy-random/issues"
+  "scripts": {
+    "build": "NODE_ENV=build rollup -c",
+    "dev": "NODE_ENV=build rollup -c -w",
+    "lint": "eslint src",
+    "lint-fix": "eslint src --fix",
+    "prepublishOnly": "npm run test && npm run build",
+    "prettier": "prettier --write '{src,tests}/**/*.js'",
+    "test": "NODE_ENV=jest jest"
   },
-  "homepage": "https://github.com/risan/giphy-random#readme",
   "devDependencies": {
     "axios": "^0.13.1",
     "babel-core": "^6.26.0",
