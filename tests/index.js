@@ -1,5 +1,5 @@
 import nock from "nock";
-import GiphyRandom from "../dist/giphy-random.esm";
+import GiphyRandom from "../src";
 
 const API_KEY = "secret";
 const GIPHY_RANDOM_API = "https://api.giphy.com/v1/gifs/random";
