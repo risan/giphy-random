@@ -10,10 +10,6 @@ export default class GiphyRandom {
       throw new Error("The apiKey parameter is required.");
     }
 
-    if (!axios) {
-      throw new Error("The giphy-random package requires axios library.");
-    }
-
     this.apiKey = apiKey;
     this.defaultRating = defaultRating;
     this.uri = uri;
