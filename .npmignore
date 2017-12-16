@@ -1,6 +1,12 @@
+coverage
+node_modules
 src
 tests
 .babelrc
 .eslintrc.js
+.gitignore
+.travis.yml
 jest.config.js
+package-lock.json
 rollup.config.js
+yarn.lock
