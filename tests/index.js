@@ -19,6 +19,13 @@ const createServer = ({
     .reply(statusCode, response);
 };
 
+const createServerWithError = (error) => {
+  return nock("https://api.giphy.com/v1/gifs")
+    .get("/random")
+    .query({ api_key: API_KEY, rating: "G" })
+    .replyWithError(error);
+};
+
 test("throws error if apiKey is not provided", () => {
   expect(() => new GiphyRandom()).toThrow(/apiKey parameter is required/);
 });
@@ -86,7 +93,7 @@ test("can get random GIF with rating parameter", () => {
   );
 });
 
-test("throws error when API return bad request response", () => {
+test("throws error when API returns bad request response", () => {
   const server = createServer({
     statusCode: 400,
     response: ERROR_RESPONSE
@@ -98,4 +105,23 @@ test("throws error when API return bad request response", () => {
     "message",
     "Failed requesting random GIF from Giphy: [401] foo bar"
   );
+});
+
+test("throws error when API retruns no response", () => {
+  const server = createServerWithError({ request: "foo bar" });
+
+  expect.assertions(1);
+
+  return expect(giphyRandom.get()).rejects.toHaveProperty(
+    "message",
+    "Failed requesting random GIF from Giphy, no response was received."
+  );
+});
+
+test("throws error when request failed", () => {
+  const server = createServerWithError("foo bar");
+
+  expect.assertions(1);
+
+  return expect(giphyRandom.get()).rejects.toHaveProperty("message", "foo bar");
 });
