@@ -17,6 +17,16 @@ This package relies on [axios](https://github.com/axios/axios) library, so you n
 $ npm run axios giphy-random
 ```
 
+You can also use this library directly on your browser by droping it on the script tag.
+
+```
+For development:
+https://unpkg.com/giphy-random@latest/dist/giphy-random.umd.js
+
+Minified for production:
+https://unpkg.com/giphy-random@latest/dist/giphy-random.umd.min.js
+```
+
 ## Usage
 
 ```js
