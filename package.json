@@ -6,13 +6,13 @@
   "module": "dist/giphy-random.esm.js",
   "browser": "dist/giphy-random.umd.js",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
+    "build": "NODE_ENV=build rollup -c",
+    "dev": "NODE_ENV=build rollup -c -w",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
-    "prepublishOnly": "npm run test && npm run build",
+    "prepublishOnly": "npm run build && npm run test",
     "prettier": "prettier --write '{src,tests}/**/*.js'",
-    "test": "jest"
+    "test": "NODE_ENV=jest jest"
   },
   "repository": {
     "type": "git",
@@ -43,7 +43,6 @@
     "jest": "^21.2.1",
     "nock": "^9.1.4",
     "prettier": "^1.9.2",
-    "regenerator-runtime": "^0.11.1",
     "rollup": "^0.52.2",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.2.6",
