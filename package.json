@@ -2,9 +2,13 @@
   "name": "giphy-random",
   "version": "1.0.0",
   "description": "A package to fetch a random GIF from Giphy API",
-  "main": "dist/index.js",
+  "main": "dist/giphy-random.cjs.js",
+  "module": "dist/giphy-random.esm.js",
+  "browser": "dist/giphy-random.umd.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,5 +24,22 @@
   "bugs": {
     "url": "https://github.com/risan/giphy-random/issues"
   },
-  "homepage": "https://github.com/risan/giphy-random#readme"
+  "homepage": "https://github.com/risan/giphy-random#readme",
+  "devDependencies": {
+    "axios": "^0.13.1",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^21.2.1",
+    "nock": "^9.1.4",
+    "regenerator-runtime": "^0.11.1",
+    "rollup": "^0.52.2",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "peerDependencies": {
+    "axios": "^0.13.1"
+  }
 }
