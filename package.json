@@ -12,8 +12,7 @@
     "lint-fix": "eslint src --fix",
     "prepublishOnly": "npm run test && npm run build",
     "prettier": "prettier --write '{src,tests}/**/*.js'",
-    "test": "NODE_ENV=jest jest",
-    "test:coverage": "NODE_ENV=jest jest --coverage"
+    "test": "NODE_ENV=jest jest"
   },
   "repository": {
     "type": "git",

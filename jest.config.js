@@ -1,5 +1,7 @@
 module.exports = {
   verbose: true,
   testEnvironment: "node",
-  testMatch: ["**/tests/**/*.js"]
+  testMatch: ["**/tests/**/*.js"],
+  collectCoverage: true,
+  collectCoverageFrom: ["**/src/**/*.js"]
 };
