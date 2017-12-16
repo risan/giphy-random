@@ -5,7 +5,7 @@ export default class GiphyRandom {
     return 'https://api.giphy.com/v1/gifs/random';
   }
 
-  constructor({apiKey, defaultRating = 'G', uri = GiphyRandom.URI} = {}) {
+  constructor({ apiKey, defaultRating = 'G', uri = GiphyRandom.URI } = {}) {
     if (!apiKey) {
       throw new Error('The apiKey parameter is required.');
     }
@@ -23,9 +23,9 @@ export default class GiphyRandom {
     const params = tag ? { api_key: this.apiKey, tag, rating } : { api_key: this.apiKey, rating };
 
     return new Promise((resolve, reject) => {
-      axios.get(this.uri, { params }).then(response => {
+      axios.get(this.uri, { params }).then((response) => {
         resolve(response.data.data);
-      }).catch(error => {
+      }).catch((error) => {
         if (error.response) {
           const { msg, status } = error.response.data.meta;
           reject(new Error(`Failed requesting random GIF from Giphy: [${status}] ${msg}`));
