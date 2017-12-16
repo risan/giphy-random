@@ -5,6 +5,7 @@ tests
 .babelrc
 .eslintrc.js
 .gitignore
+.prettierrc.json
 .travis.yml
 jest.config.js
 package-lock.json
