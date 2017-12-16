@@ -8,9 +8,10 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "test": "jest",
-    "lint": "eslint src; exit 0",
-    "lint-fix": "eslint src --fix"
+    "lint": "eslint src",
+    "lint-fix": "eslint src --fix",
+    "prepublishOnly": "npm run test && npm run build",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
