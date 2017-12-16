@@ -1,11 +1,15 @@
 # Giphy Random
 
+[![Build Status](https://img.shields.io/travis/risan/giphy-random.svg?style=flat-square)](https://travijes-ci.org/risan/giphy-random)
+
 A package to fetch a random GIF from [Giphy](https://giphy.com) API.
 
 ## Install
 
+This package relies on [axios](https://github.com/axios/axios) library, so you need to install it too.
+
 ```bash
-$ npm run giphy-random
+$ npm run axios giphy-random
 ```
 
 ## Usage
@@ -57,7 +61,10 @@ giphyRandom.get({ rating: 'PG-13' })
   .catch(e => console.error(e.message));
 ```
 
-
 ## License
 
 MIT © [Risan Bagja Pradana](https://risan.io)
+
+## Legal
+
+This code is in no way affiliated with, authorized, maintained, sponsored or endorsed by [Giphy](https://giphy.com) or any of its affiliates or subsidiaries. This is an independent and unofficial API.
