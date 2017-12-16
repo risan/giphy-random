@@ -1,13 +1,13 @@
-import axios from "axios";
+import axios from 'axios';
 
 export default class GiphyRandom {
   static get URI() {
-    return "https://api.giphy.com/v1/gifs/random";
+    return 'https://api.giphy.com/v1/gifs/random';
   }
 
-  constructor({ apiKey, defaultRating = "G", uri = GiphyRandom.URI } = {}) {
+  constructor({ apiKey, defaultRating = 'G', uri = GiphyRandom.URI } = {}) {
     if (!apiKey) {
-      throw new Error("The apiKey parameter is required.");
+      throw new Error('The apiKey parameter is required.');
     }
 
     this.apiKey = apiKey;
@@ -37,7 +37,7 @@ export default class GiphyRandom {
           } else if (error.request) {
             reject(
               new Error(
-                "Failed requesting random GIF from Giphy, no response was received."
+                'Failed requesting random GIF from Giphy, no response was received.'
               )
             );
           } else {
