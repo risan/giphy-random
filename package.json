@@ -1,6 +1,6 @@
 {
   "name": "giphy-random",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package to fetch a random GIF from Giphy API",
   "main": "dist/giphy-random.cjs.js",
   "module": "dist/giphy-random.esm.js",
