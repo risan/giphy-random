@@ -9,7 +9,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "test": "jest",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src; exit 0",
+    "lint-fix": "eslint src --fix"
   },
   "repository": {
     "type": "git",
