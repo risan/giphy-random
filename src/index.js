@@ -23,27 +23,26 @@ export default class GiphyRandom {
     return new Promise((resolve, reject) => {
       axios
         .get(this.uri, { params })
-        .then(response => {
-          resolve(response.data.data);
-        })
-        .catch(error => {
-          if (error.response) {
-            const { msg, status } = error.response.data.meta;
-            reject(
-              new Error(
-                `Failed requesting random GIF from Giphy: [${status}] ${msg}`
-              )
-            );
-          } else if (error.request) {
-            reject(
-              new Error(
-                'Failed requesting random GIF from Giphy, no response was received.'
-              )
-            );
-          } else {
-            reject(error);
-          }
-        });
+        .then(response => resolve(response.data.data))
+        .catch(error => reject(GiphyRandom.castToError(error)));
     });
+  }
+
+  static castToError(error) {
+    if (error.response) {
+      const { msg, status } = error.response.data.meta;
+
+      return new Error(
+        `Failed requesting random GIF from Giphy: [${status}] ${msg}`
+      );
+    }
+
+    if (error.request) {
+      return new Error(
+        'Failed requesting random GIF from Giphy, no response was received.'
+      );
+    }
+
+    return error;
   }
 }
