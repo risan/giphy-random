@@ -1,6 +1,11 @@
 # Giphy Random
 
-[![Build Status](https://img.shields.io/travis/risan/giphy-random.svg?style=flat-square)](https://travijes-ci.org/risan/giphy-random)
+[![Latest Stable Version](https://img.shields.io/npm/v/giphy-random.svg?style=flat-square)](https://www.npmjs.com/package/giphy-random)
+[![Build Status](https://img.shields.io/travis/risan/giphy-random.svg?style=flat-square)](https://travis-ci.org/risan/giphy-random)
+[![Test Coverage](https://img.shields.io/codeclimate/coverage/github/risan/giphy-random.svg?style=flat-square)](https://codeclimate.com/github/risan/giphy-random/test_coverage)
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/risan/giphy-random.svg?style=flat-square)](https://codeclimate.com/github/risan/giphy-random/maintainability)
+[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/risan/giphy-random)
+[![License](https://img.shields.io/npm/l/giphy-random.svg?style=flat-square)](https://www.npmjs.com/package/giphy-random)
 
 A package to fetch a random GIF from [Giphy](https://giphy.com) API.
 
