@@ -14,7 +14,7 @@ A package to fetch a random GIF from [Giphy](https://giphy.com) API.
 This package relies on [axios](https://github.com/axios/axios) library, so you need to install it too.
 
 ```bash
-$ npm run axios giphy-random
+$ npm install axios giphy-random
 ```
 
 You can also use this library directly on your browser by loading the UMD bundle in the script tag.
@@ -23,7 +23,7 @@ You can also use this library directly on your browser by loading the UMD bundle
 <!-- For development -->
 <script src="https://unpkg.com/giphy-random@latest/dist/giphy-random.umd.js"></script>
 
-<!-- Minified for production -->
+<!-- Minified version for production -->
 <script src="https://unpkg.com/giphy-random@latest/dist/giphy-random.umd.min.js"></script>
 ```
 
@@ -39,11 +39,11 @@ giphyRandom.get()
   .catch(e => console.error(e.message));
 ```
 
-You can get your Giphy API key by [here](https://developers.giphy.com/dashboard/?create=true).
+You can get your Giphy API key by registering an application [here](https://developers.giphy.com/dashboard/?create=true).
 
 ### Specifying default rating
 
-Giphy use [MPAA-style](https://www.mpaa.org/wp-content/uploads/2013/11/film_ratings1.jpg) rating to filter the content. You can specify the default rating by passing `rating` parameter to the costructor:
+Giphy use [MPAA-style](https://www.mpaa.org/wp-content/uploads/2013/11/film_ratings1.jpg) rating to filter the content. You can specify the default rating by passing `rating` parameter to the constructor:
 
 ```js
 const giphyRandom = new GiphyRandom({ apiKey: 'YOUR_API_KEY', rating: 'PG' });
@@ -54,11 +54,11 @@ You can pass the following value as `rating`:
 * `G`: General audiences (default)
 * `PG`: Parental guidance suggested
 * `PG-13`: Parents strongly cautioned
-* `R`:Restricted
+* `R`: Restricted
 
 ### Filtering by tag
 
-You can filter the results by specified tag:
+You can filter the results by a specified tag:
 
 ```js
 giphyRandom.get({ tag: 'cat' })
@@ -68,7 +68,7 @@ giphyRandom.get({ tag: 'cat' })
 
 ### Overwrite the default rating
 
-You can overwrite the default content rating by passing `rating` parameter:
+You can overwrite the default content rating by passing optional `rating` parameter to `get` method:
 
 ```js
 giphyRandom.get({ rating: 'PG-13' })
