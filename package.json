@@ -1,6 +1,6 @@
 {
   "name": "giphy-random",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A package to fetch a random GIF from Giphy API",
   "author": {
     "name": "Risan Bagja Pradana",
