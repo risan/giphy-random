@@ -1,13 +1,13 @@
 # Giphy Random
 
-[![Latest Stable Version](https://img.shields.io/npm/v/giphy-random.svg?style=flat-square)](https://www.npmjs.com/package/giphy-random)
-[![Build Status](https://img.shields.io/travis/risan/giphy-random.svg?style=flat-square)](https://travis-ci.org/risan/giphy-random)
-[![Test Coverage](https://img.shields.io/codeclimate/c/risan/giphy-random.svg?style=flat-square)](https://codeclimate.com/github/risan/giphy-random/test_coverage)
-[![Maintainability](https://img.shields.io/codeclimate/maintainability/risan/giphy-random.svg?style=flat-square)](https://codeclimate.com/github/risan/giphy-random/maintainability)
-[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/risan/giphy-random)
-[![License](https://img.shields.io/npm/l/giphy-random.svg?style=flat-square)](https://www.npmjs.com/package/giphy-random)
+[![Latest Stable Version](https://img.shields.io/npm/v/giphy-random.svg)](https://www.npmjs.com/package/giphy-random)
+[![Build Status](https://travis-ci.org/risan/messenger-client.svg?branch=master)](https://travis-ci.org/risan/messenger-client)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/32dd6526994cf365ea89/test_coverage)](https://codeclimate.com/github/risan/giphy-random/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/32dd6526994cf365ea89/maintainability)](https://codeclimate.com/github/risan/giphy-random/maintainability)
+[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/risan/giphy-random)
+[![License](https://img.shields.io/npm/l/giphy-random.svg)](https://www.npmjs.com/package/giphy-random)
 
-A package to fetch a random GIF from [Giphy](https://giphy.com) API.
+A Javascript package to fetch a random GIF from [Giphy](https://giphy.com) API.
 
 ## Install
 
