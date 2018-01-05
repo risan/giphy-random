@@ -1,7 +1,7 @@
 {
   "name": "giphy-random",
   "description": "A package to fetch a random GIF from Giphy API",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "homepage": "https://github.com/risan/giphy-random#readme",
   "author": {
