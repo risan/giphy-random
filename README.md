@@ -1,7 +1,7 @@
 # Giphy Random
 
 [![Latest Stable Version](https://img.shields.io/npm/v/giphy-random.svg)](https://www.npmjs.com/package/giphy-random)
-[![Build Status](https://travis-ci.org/risan/messenger-client.svg?branch=master)](https://travis-ci.org/risan/messenger-client)
+[![Build Status](https://travis-ci.org/risan/giphy-random.svg?branch=master)](https://travis-ci.org/risan/giphy-random)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/32dd6526994cf365ea89/test_coverage)](https://codeclimate.com/github/risan/giphy-random/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/32dd6526994cf365ea89/maintainability)](https://codeclimate.com/github/risan/giphy-random/maintainability)
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/risan/giphy-random)
@@ -17,7 +17,7 @@ This package relies on [axios](https://github.com/axios/axios) library, so you n
 $ npm install axios giphy-random
 ```
 
-You can also use this library directly on your browser by loading the UMD bundle in the script tag.
+You can also use this library on browser. Simply drop the UMD bundle on the script tag.
 
 ```html
 <!-- For development -->
@@ -30,7 +30,7 @@ You can also use this library directly on your browser by loading the UMD bundle
 ## Usage
 
 ```js
-import GiphyRandom from 'giphy-random';
+const GiphyRandom = require('giphy-random');
 
 const giphyRandom = new GiphyRandom({ apiKey: 'YOUR_API_KEY' });
 
