@@ -1,32 +1,32 @@
 {
   "name": "giphy-random",
-  "version": "1.0.4",
   "description": "A package to fetch a random GIF from Giphy API",
+  "version": "1.0.4",
+  "license": "MIT",
+  "homepage": "https://github.com/risan/giphy-random#readme",
   "author": {
     "name": "Risan Bagja Pradana",
     "email": "risanbagja@gmail.com",
     "url": "https://risan.io"
   },
-  "main": "dist/giphy-random.cjs.js",
-  "module": "dist/giphy-random.esm.js",
-  "browser": "dist/giphy-random.umd.js",
-  "engines": {
-    "node": ">= 6"
-  },
-  "homepage": "https://github.com/risan/giphy-random#readme",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/risan/giphy-random/issues"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/risan/giphy-random.git"
+  },
+  "bugs": {
+    "url": "https://github.com/risan/giphy-random/issues"
   },
   "keywords": [
     "gif",
     "giphy",
     "fun"
   ],
+  "main": "dist/giphy-random.cjs.js",
+  "module": "dist/giphy-random.esm.js",
+  "browser": "dist/giphy-random.umd.js",
+  "engines": {
+    "node": ">= 6"
+  },
   "scripts": {
     "build": "NODE_ENV=build rollup -c",
     "dev": "NODE_ENV=build rollup -c -w",
