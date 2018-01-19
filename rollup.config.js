@@ -1,9 +1,9 @@
-import pkg from './package.json';
 import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import eslint from 'rollup-plugin-eslint';
 import uglify from 'rollup-plugin-uglify';
+import pkg from './package.json';
 
 const umdConfig = ({ minify = false } = {}) => {
   const config = {
@@ -34,7 +34,7 @@ const umdConfig = ({ minify = false } = {}) => {
   }
 
   return config;
-}
+};
 
 export default [
   umdConfig(),

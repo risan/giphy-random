@@ -1,6 +1,7 @@
 import nock from 'nock';
 import GiphyRandom from '../src';
 
+/* eslint-disable no-undef */
 const API_KEY = 'secret';
 const GIPHY_RANDOM_API = 'https://api.giphy.com/v1/gifs/random';
 const SUCCESS_RESPONSE = { data: { image_url: 'https://foo.bar' } };
@@ -12,19 +13,17 @@ const createServer = ({
   query = { api_key: API_KEY, rating: 'G' },
   statusCode = 200,
   response = SUCCESS_RESPONSE
-} = {}) => {
-  return nock('https://api.giphy.com/v1/gifs')
+} = {}) =>
+  nock('https://api.giphy.com/v1/gifs')
     .get('/random')
     .query(query)
     .reply(statusCode, response);
-};
 
-const createServerWithError = error => {
-  return nock('https://api.giphy.com/v1/gifs')
+const createServerWithError = error =>
+  nock('https://api.giphy.com/v1/gifs')
     .get('/random')
     .query({ api_key: API_KEY, rating: 'G' })
     .replyWithError(error);
-};
 
 test('throws error if apiKey is not provided', () => {
   expect(() => new GiphyRandom()).toThrow(/apiKey parameter is required/);
@@ -43,9 +42,9 @@ test('can get the default defaultRating property', () => {
 });
 
 test('can set the defaultRating property', () => {
-  const giphyRandom = new GiphyRandom({ apiKey: API_KEY, defaultRating: 'PG' });
+  const giphy = new GiphyRandom({ apiKey: API_KEY, defaultRating: 'PG' });
 
-  expect(giphyRandom.defaultRating).toBe('PG');
+  expect(giphy.defaultRating).toBe('PG');
 });
 
 test('can get the default uri property', () => {
@@ -53,16 +52,16 @@ test('can get the default uri property', () => {
 });
 
 test('can set the uri property', () => {
-  const giphyRandom = new GiphyRandom({
+  const giphy = new GiphyRandom({
     apiKey: API_KEY,
     uri: 'https://foo.bar'
   });
 
-  expect(giphyRandom.uri).toBe('https://foo.bar');
+  expect(giphy.uri).toBe('https://foo.bar');
 });
 
 test('can get random GIF', () => {
-  const server = createServer();
+  createServer();
 
   expect.assertions(1);
 
@@ -70,7 +69,7 @@ test('can get random GIF', () => {
 });
 
 test('can get random GIF with tag parameter', () => {
-  const server = createServer({
+  createServer({
     query: { api_key: API_KEY, tag: 'bar', rating: 'G' }
   });
 
@@ -82,7 +81,7 @@ test('can get random GIF with tag parameter', () => {
 });
 
 test('can get random GIF with rating parameter', () => {
-  const server = createServer({
+  createServer({
     query: { api_key: API_KEY, rating: 'PG' }
   });
 
@@ -94,7 +93,7 @@ test('can get random GIF with rating parameter', () => {
 });
 
 test('throws error when API returns bad request response', () => {
-  const server = createServer({
+  createServer({
     statusCode: 400,
     response: ERROR_RESPONSE
   });
@@ -108,7 +107,7 @@ test('throws error when API returns bad request response', () => {
 });
 
 test('throws error when API retruns no response', () => {
-  const server = createServerWithError({ request: 'foo bar' });
+  createServerWithError({ request: 'foo bar' });
 
   expect.assertions(1);
 
@@ -123,3 +122,4 @@ test('it wont cast non-request error', () => {
 
   expect(GiphyRandom.castToError(error)).toEqual(error);
 });
+/* eslint-enable no-undef */
