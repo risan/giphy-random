@@ -29,6 +29,8 @@
   },
   "scripts": {
     "build": "NODE_ENV=build rollup -c",
+    "lint": "eslint ./",
+    "lint-fix": "eslint ./ --fix",
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
@@ -41,7 +43,13 @@
     "@babel/preset-env": "^7.1.5",
     "@babel/runtime": "^7.1.5",
     "babel-core": "^7.0.0-bridge.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.2.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^3.0.0",
     "jest": "^23.6.0",
+    "prettier": "^1.15.2",
     "rollup": "^0.67.0",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",

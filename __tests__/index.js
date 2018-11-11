@@ -26,7 +26,7 @@ test("it can get random GIF", async () => {
 test("the default rating must be G", async () => {
   axios.get.mockResolvedValue({ data: SUCCESS_RESPONSE });
 
-  const { data } = await giphyRandom("SECRET");
+  await giphyRandom("SECRET");
 
   expect(axios.get.mock.calls[0][1]).toHaveProperty("params.rating", "g");
 });
@@ -34,7 +34,7 @@ test("the default rating must be G", async () => {
 test("it can receive tag and rating arguments", async () => {
   axios.get.mockResolvedValue({ data: SUCCESS_RESPONSE });
 
-  const { data } = await giphyRandom("SECRET", {
+  await giphyRandom("SECRET", {
     tag: "cat",
     rating: "pg"
   });
