@@ -1,64 +1,75 @@
-import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import eslint from 'rollup-plugin-eslint';
-import uglify from 'rollup-plugin-uglify';
-import pkg from './package.json';
+import babel from "rollup-plugin-babel";
+import commonjs from "rollup-plugin-commonjs";
+import resolve from "rollup-plugin-node-resolve";
+import { terser } from "rollup-plugin-terser";
+
+import pkg from "./package.json";
+
+const baseConfig = ({ file, format, babelConfig = {} } = {}) => ({
+  input: "src/index.js",
+  output: {
+    file,
+    format
+  },
+  external: ["axios"],
+  plugins: [
+    resolve(),
+    commonjs(),
+    babel({
+      exclude: "node_modules/**",
+      runtimeHelpers: true,
+      ...babelConfig
+    })
+  ]
+});
 
 const umdConfig = ({ minify = false } = {}) => {
-  const config = {
-    input: 'src/index.js',
-    output: {
-      file: minify ? `dist/${pkg.name}.umd.min.js` : `dist/${pkg.name}.umd.js`,
-      format: 'umd'
-    },
-    name: 'GiphyRandom',
-    external: ['axios'],
+  const file = minify ? pkg.browser.replace(/\.js$/, ".min.js") : pkg.browser;
+
+  const config = baseConfig({ file, format: "umd" });
+
+  config.output = {
+    ...config.output,
+    name: "giphyRandom",
     globals: {
-      axios: 'axios'
-    },
-    plugins: [
-      eslint({
-        include: ['src/**'],
-        throwOnError: true,
-        throwOnWarning: true
-      }),
-      resolve(),
-      commonjs(),
-      babel({ exclude: 'node_modules/**' })
-    ]
+      axios: "axios"
+    }
   };
 
   if (minify) {
-    config.plugins.push(uglify());
+    config.plugins.push(terser());
   }
 
   return config;
 };
 
 export default [
+  // UMD.
   umdConfig(),
   umdConfig({ minify: true }),
-  {
-    input: 'src/index.js',
-    output: [
-      {
-        file: pkg.main,
-        format: 'cjs'
-      },
-      {
-        file: pkg.module,
-        format: 'es'
-      }
-    ],
-    external: ['axios'],
-    plugins: [
-      eslint({
-        include: ['src/**'],
-        throwOnError: true,
-        throwOnWarning: true
-      }),
-      babel({ exclude: 'node_modules/**' })
-    ]
-  }
+
+  // CommonJS.
+  baseConfig({
+    file: pkg.main,
+    format: "cjs",
+    babelConfig: {
+      babelrc: false,
+      runtimeHelpers: false,
+      presets: [
+        [
+          "@babel/env",
+          {
+            modules: false,
+            targets: "node 8"
+          }
+        ]
+      ]
+    }
+  }),
+
+  // ES Module.
+  baseConfig({
+    file: pkg.module,
+    format: "es"
+  })
 ];
