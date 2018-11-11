@@ -1,13 +1,13 @@
 {
   "name": "giphy-random",
-  "description": "A package to fetch a random GIF from Giphy API",
+  "description": "Get random GIF from Giphy",
   "version": "1.0.5",
   "license": "MIT",
   "homepage": "https://github.com/risan/giphy-random#readme",
   "author": {
     "name": "Risan Bagja Pradana",
     "email": "risanbagja@gmail.com",
-    "url": "https://risan.io"
+    "url": "https://bagja.net"
   },
   "repository": {
     "type": "git",
@@ -25,38 +25,11 @@
   "module": "dist/giphy-random.esm.js",
   "browser": "dist/giphy-random.umd.js",
   "engines": {
-    "node": ">= 6"
+    "node": ">=8.0.0"
   },
   "scripts": {
-    "build": "NODE_ENV=build rollup -c",
-    "dev": "NODE_ENV=build rollup -c -w",
-    "lint": "eslint *.js src tests",
-    "lint-fix": "eslint *.js src tests --fix",
-    "prepublishOnly": "npm run test && npm run build",
-    "test": "NODE_ENV=jest jest"
+    "build": "NODE_ENV=build rollup -c"
   },
-  "devDependencies": {
-    "axios": ">= 0.16.0",
-    "babel-core": "^6.26.0",
-    "babel-jest": "^21.2.0",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-env": "^1.6.1",
-    "eslint": "^4.13.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-prettier": "^2.3.1",
-    "jest": "^21.2.1",
-    "nock": "^9.1.4",
-    "prettier": "^1.9.2",
-    "rollup": "^0.52.2",
-    "rollup-plugin-babel": "^3.0.2",
-    "rollup-plugin-commonjs": "^8.2.6",
-    "rollup-plugin-eslint": "^4.0.0",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-uglify": "^2.0.1"
-  },
-  "peerDependencies": {
-    "axios": ">= 0.16.0"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
