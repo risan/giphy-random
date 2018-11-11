@@ -1,84 +1,163 @@
 # Giphy Random
 
-[![Latest Stable Version](https://img.shields.io/npm/v/giphy-random.svg)](https://www.npmjs.com/package/giphy-random)
-[![Build Status](https://travis-ci.org/risan/giphy-random.svg?branch=master)](https://travis-ci.org/risan/giphy-random)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/32dd6526994cf365ea89/test_coverage)](https://codeclimate.com/github/risan/giphy-random/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/32dd6526994cf365ea89/maintainability)](https://codeclimate.com/github/risan/giphy-random/maintainability)
-[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/risan/giphy-random)
-[![License](https://img.shields.io/npm/l/giphy-random.svg)](https://www.npmjs.com/package/giphy-random)
+[![Build Status](https://flat.badgen.net/travis/risan/giphy-random)](https://travis-ci.org/risan/giphy-random)
+[![Test Coverage](https://flat.badgen.net/codeclimate/coverage/risan/giphy-random)](https://codeclimate.com/github/risan/giphy-random)
+[![Maintainability](https://flat.badgen.net/codeclimate/maintainability/risan/giphy-random)](https://codeclimate.com/github/risan/giphy-random)
+[![Latest Stable Version](https://flat.badgen.net/npm/v/giphy-random)](https://www.npmjs.com/package/giphy-random)
+[![Node Version](https://flat.badgen.net/npm/node/giphy-random)](https://www.npmjs.com/package/giphy-random)
+[![Code Style: Prettier](https://flat.badgen.net/badge/code%20style/prettier/ff69b4)](https://github.com/prettier/prettier)
+[![License](https://flat.badgen.net/npm/license/giphy-random)](https://github.com/risan/giphy-random/blob/master/LICENSE)
 
-A Javascript package to fetch a random GIF from [Giphy](https://giphy.com) API.
+Get random GIF from [Giphy](https://giphy.com).
 
-## Install
-
-This package relies on [axios](https://github.com/axios/axios) library, so you need to install it too.
+## Installation
 
 ```bash
-$ npm install axios giphy-random
+$ npm install sweden-prayer-times
+
+# Or if you use Yarn
+$ yarn add sweden-prayer-times
 ```
 
-You can also use this library on browser. Simply drop the UMD bundle on the script tag.
+ If you want to use this library directly on the browser, you have to include the [axios](https://github.com/axios/axios) library too:
 
 ```html
-<!-- For development -->
-<script src="https://unpkg.com/giphy-random@latest/dist/giphy-random.umd.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-<!-- Minified version for production -->
-<script src="https://unpkg.com/giphy-random@latest/dist/giphy-random.umd.min.js"></script>
+<script src="https://unpkg.com/giphy-random/dist/giphy-random.umd.min.js"></script>
 ```
 
-## Usage
+## Quick Start
 
 ```js
-const GiphyRandom = require('giphy-random');
+const giphyRandom = require("giphy-random");
 
-const giphyRandom = new GiphyRandom({ apiKey: 'YOUR_API_KEY' });
+(async () => {
+  const API_KEY = "YOUR API KEY";
 
-giphyRandom.get()
-  .then(data => console.log(data))
-  .catch(e => console.error(e.message));
+  const { data } = await giphyRandom(API_KEY);
+
+  console.log(data);
+})();
 ```
 
-You can get your Giphy API key by registering an application [here](https://developers.giphy.com/dashboard/?create=true).
+The `data` will contain a [GIF Object](https://developers.giphy.com/docs/#gif-object).
 
-### Specifying default rating
+To get your Giphy API key, sign up here: [developers.giphy.com/dashboard](https://developers.giphy.com/dashboard/?create=true).
 
-Giphy use [MPAA-style](https://www.mpaa.org/wp-content/uploads/2013/11/film_ratings1.jpg) rating to filter the content. You can specify the default rating by passing `rating` parameter to the constructor:
+## Recipe
+
+### Filter by Tag
 
 ```js
-const giphyRandom = new GiphyRandom({ apiKey: 'YOUR_API_KEY', rating: 'PG' });
+const giphyRandom = require("giphy-random");
+
+(async () => {
+  const API_KEY = "YOUR API KEY";
+
+  const { data } = await giphyRandom(API_KEY, {
+    tag: "cat"
+  });
+
+  console.log(data);
+})();
 ```
+
+### Override the Default Rating
+
+By default, Giphy will use the `G`—general audience—rating. To override this, pass the `rating` argument:
+
+```js
+const giphyRandom = require("giphy-random");
+
+(async () => {
+  const API_KEY = "YOUR API KEY";
+
+  const { data } = await giphyRandom(API_KEY, {
+    rating: "pg-13"
+  });
+
+  console.log(data);
+})();
+```
+
+## API
+
+### `giphyRandom()`
+
+```js
+giphyRandom(apiKey, [{ tag, rating }])
+```
+
+#### Parameters
+
+* `apiKey` (`String`): Your Giphy API key.
+* `tag` (optional `String`): The tag to filter the result.
+* `rating` (optional `String`): [MPAA-style](https://www.mpaa.org/wp-content/uploads/2013/11/film_ratings1.jpg) rating to filter the result, default to `g`.
+
+Here's the `rating` value that you can pass:
 
 You can pass the following value as `rating`:
-* `Y`: Appropriate for all children
-* `G`: General audiences (default)
-* `PG`: Parental guidance suggested
-* `PG-13`: Parents strongly cautioned
-* `R`: Restricted
+* `y`: Appropriate for all children
+* `g`: General audiences (default)
+* `pg`: Parental guidance suggested
+* `pg-13`: Parents strongly cautioned
+* `r`: Restricted
 
-### Filtering by tag
+#### Return
 
-You can filter the results by a specified tag:
-
-```js
-giphyRandom.get({ tag: 'cat' })
-  .then(data => console.log(data))
-  .catch(e => console.error(e.message));
-```
-
-### Overwrite the default rating
-
-You can overwrite the default content rating by passing optional `rating` parameter to `get` method:
+It returns a `Promise` which when resolved contains a [Giphy API response object](https://developers.giphy.com/docs/#sample-responses). Here's an example of the resolved value with some properties that you might be interested in:
 
 ```js
-giphyRandom.get({ rating: 'PG-13' })
-  .then(data => console.log(data))
-  .catch(e => console.error(e.message));
+{
+  data: {
+    type: "gif",
+    id: "H2fORSKZw4SCQ",
+    slug: "cats-cat-gifs-kitten-H2fORSKZw4SCQ",
+    url: "https://giphy.com/gifs/cats-cat-gifs-kitten-H2fORSKZw4SCQ",
+    embed_url: "https://giphy.com/embed/H2fORSKZw4SCQ",
+    source_post_url: "https://kittehkats.tumblr.com/post/101035478921/found-on-lh3-googleusercontent-com",
+    images: {
+      downsized: {
+        url: "https://media1.giphy.com/media/H2fORSKZw4SCQ/giphy-downsized.gif",
+        width: "210",
+        height: "138",
+        size: "1930051"
+      },
+      original: {
+        url: "https://media1.giphy.com/media/H2fORSKZw4SCQ/giphy.gif",
+        width: "210",
+        height: "138",
+        size: "1930051",
+        frames: "165",
+        mp4: "https://media1.giphy.com/media/H2fORSKZw4SCQ/giphy.mp4",
+        mp4_size: "781811",
+        webp: "https://media1.giphy.com/media/H2fORSKZw4SCQ/giphy.webp",
+        webp_size: "1368374"
+      }
+      // Omitted...
+    },
+    title: "cat kitten GIF",
+    image_url: "https://media1.giphy.com/media/H2fORSKZw4SCQ/giphy.gif",
+    image_mp4_url: "https://media1.giphy.com/media/H2fORSKZw4SCQ/giphy.mp4",
+    image_width: "210",
+    image_height: "138",
+    caption: ""
+    // Omitted...
+  },
+  meta: {
+    status: 200,
+    msg: "OK",
+    response_id: "5be8329e796b703936aff12b"
+  }
+}
 ```
+
+Note that there are many properties omitted from the example above. Check [Giphy documentation](https://developers.giphy.com/docs/#gif-object) for more detail.
 
 ## License
 
-MIT © [Risan Bagja Pradana](https://risan.io)
+MIT © [Risan Bagja Pradana](https://bagja.net)
 
 ## Legal
 
