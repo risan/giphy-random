@@ -1,8 +1,15 @@
 {
-  "presets": [
-    ["@babel/env", {
-      "modules": false
-    }]
-  ],
-  "plugins": ["@babel/plugin-transform-runtime"]
+  "env": {
+    "build": {
+      "presets": [
+        ["@babel/env", {
+          "modules": false
+        }]
+      ],
+      "plugins": ["@babel/plugin-transform-runtime"]
+    },
+    "test": {
+      "presets": ["@babel/env"]
+    }
+  }
 }
