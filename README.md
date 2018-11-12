@@ -13,10 +13,10 @@ Get random GIF from [Giphy](https://giphy.com).
 ## Installation
 
 ```bash
-$ npm install sweden-prayer-times
+$ npm install giphy-random
 
 # Or if you use Yarn
-$ yarn add sweden-prayer-times
+$ yarn add giphy-random
 ```
 
  If you want to use this library directly on the browser, you have to include the [axios](https://github.com/axios/axios) library too:
