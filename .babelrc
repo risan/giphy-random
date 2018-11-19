@@ -2,14 +2,14 @@
   "env": {
     "build": {
       "presets": [
-        ["@babel/env", {
+        ["@babel/preset-env", {
           "modules": false
         }]
       ],
       "plugins": ["@babel/plugin-transform-runtime"]
     },
     "test": {
-      "presets": ["@babel/env"]
+      "presets": ["@babel/preset-env"]
     }
   }
 }
