@@ -30,7 +30,8 @@
     "build": "NODE_ENV=build rollup -c",
     "lint": "eslint ./",
     "lint-fix": "eslint ./ --fix",
-    "test": "NODE_ENV=test jest"
+    "test": "NODE_ENV=test jest",
+    "prepublishOnly": "npm run lint && npm run test && npm run build"
   },
   "dependencies": {
     "@babel/runtime": "^7.1.5",
