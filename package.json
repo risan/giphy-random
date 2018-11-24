@@ -22,7 +22,6 @@
     "fun"
   ],
   "main": "dist/giphy-random.cjs.js",
-  "module": "dist/giphy-random.esm.js",
   "browser": "dist/giphy-random.umd.js",
   "engines": {
     "node": ">=8.0.0"
@@ -34,15 +33,15 @@
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "babel-jest": "^23.6.0"
+    "@babel/runtime": "^7.1.5",
+    "axios": "^0.18.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.5",
-    "@babel/runtime": "^7.1.5",
     "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.2.0",

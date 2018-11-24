@@ -65,11 +65,5 @@ export default [
         ]
       ]
     }
-  }),
-
-  // ES Module.
-  baseConfig({
-    file: pkg.module,
-    format: "es"
   })
 ];
