@@ -3,13 +3,18 @@
     "build": {
       "presets": [
         ["@babel/preset-env", {
-          "modules": false
+          "modules": false,
+          "useBuiltIns": "usage"
         }]
-      ],
-      "plugins": ["@babel/plugin-transform-runtime"]
+      ]
     },
     "test": {
-      "presets": ["@babel/preset-env"]
+      "presets": [
+        ["@babel/preset-env", {
+          "useBuiltIns": "usage",
+          "targets": "node 8"
+        }]
+      ]
     }
   }
 }

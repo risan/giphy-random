@@ -1,59 +1,57 @@
 {
   "name": "giphy-random",
-  "description": "Get random GIF from Giphy",
   "version": "2.0.4",
-  "license": "MIT",
-  "homepage": "https://github.com/risan/giphy-random#readme",
-  "author": {
-    "name": "Risan Bagja Pradana",
-    "email": "risanbagja@gmail.com",
-    "url": "https://bagja.net"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/risan/giphy-random.git"
-  },
-  "bugs": {
-    "url": "https://github.com/risan/giphy-random/issues"
-  },
+  "description": "Get random GIF from Giphy",
   "keywords": [
     "gif",
     "giphy",
     "fun"
   ],
+  "homepage": "https://github.com/risan/giphy-random#readme",
+  "bugs": {
+    "url": "https://github.com/risan/giphy-random/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Risan Bagja Pradana",
+    "email": "risanbagja@gmail.com",
+    "url": "https://bagja.net"
+  },
   "main": "dist/giphy-random.cjs.js",
   "browser": "dist/giphy-random.umd.js",
-  "engines": {
-    "node": ">=8.0.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/risan/giphy-random.git"
   },
   "scripts": {
     "build": "NODE_ENV=build rollup -c",
     "lint": "eslint ./",
     "lint-fix": "eslint ./ --fix",
-    "test": "NODE_ENV=test jest",
-    "prepublishOnly": "npm run lint && npm run test && npm run build"
+    "prepublishOnly": "npm run lint && npm run test && npm run build",
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.5",
     "axios": "^0.18.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.5",
-    "@babel/plugin-transform-runtime": "^7.1.0",
-    "@babel/preset-env": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^3.2.0",
+    "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.0",
     "jest": "^23.6.0",
     "prettier": "^1.15.2",
-    "rollup": "^0.67.0",
+    "rollup": "^0.67.3",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-terser": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
   }
 }

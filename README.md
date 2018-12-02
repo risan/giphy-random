@@ -10,7 +10,7 @@
 
 Get random GIF from [Giphy](https://giphy.com).
 
-## Installation
+## Install
 
 ```bash
 $ npm install giphy-random

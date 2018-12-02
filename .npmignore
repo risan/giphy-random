@@ -3,8 +3,10 @@ coverage
 src
 .babelrc
 .browserslistrc
+.codeclimate.yml
 .eslintignore
 .eslintrc.js
+.travis.yml
 jest.config.js
 rollup.config.js
 yarn.lock
