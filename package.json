@@ -1,11 +1,11 @@
 {
   "name": "giphy-random",
-  "version": "2.0.5",
-  "description": "Get random GIF from Giphy",
+  "version": "2.0.7",
+  "description": "Get random GIF from Giphy.",
   "keywords": [
+    "fun",
     "gif",
-    "giphy",
-    "fun"
+    "giphy"
   ],
   "homepage": "https://github.com/risan/giphy-random#readme",
   "bugs": {

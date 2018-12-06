@@ -1,25 +1,19 @@
 # Giphy Random
 
-[![Build Status](https://flat.badgen.net/travis/risan/giphy-random)](https://travis-ci.org/risan/giphy-random)
-[![Test Coverage](https://flat.badgen.net/codeclimate/coverage/risan/giphy-random)](https://codeclimate.com/github/risan/giphy-random)
-[![Maintainability](https://flat.badgen.net/codeclimate/maintainability/risan/giphy-random)](https://codeclimate.com/github/risan/giphy-random)
-[![Latest Stable Version](https://flat.badgen.net/npm/v/giphy-random)](https://www.npmjs.com/package/giphy-random)
-[![Node Version](https://flat.badgen.net/npm/node/giphy-random)](https://www.npmjs.com/package/giphy-random)
-[![Code Style: Prettier](https://flat.badgen.net/badge/code%20style/prettier/ff69b4)](https://github.com/prettier/prettier)
-[![License](https://flat.badgen.net/npm/license/giphy-random)](https://github.com/risan/giphy-random/blob/master/LICENSE)
+[![Build Status](https://badgen.net/travis/risan/giphy-random)](https://travis-ci.org/risan/giphy-random)
+[![Test Covarage](https://badgen.net/codecov/c/github/risan/giphy-random)](https://codecov.io/gh/risan/giphy-random)
+[![Greenkeeper](https://badges.greenkeeper.io/risan/giphy-random.svg)](https://greenkeeper.io)
+[![Latest Version](https://badgen.net/npm/v/giphy-random)](https://www.npmjs.com/package/giphy-random)
 
 Get random GIF from [Giphy](https://giphy.com).
 
-## Install
+## Installation
 
 ```bash
 $ npm install giphy-random
-
-# Or if you use Yarn
-$ yarn add giphy-random
 ```
 
- If you want to use this library directly on the browser, you have to include the [axios](https://github.com/axios/axios) library too:
+If you want to use this library directly on the browser, you have to manually include the [axios](https://github.com/axios/axios) library too:
 
 ```html
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -27,7 +21,7 @@ $ yarn add giphy-random
 <script src="https://unpkg.com/giphy-random/dist/giphy-random.umd.min.js"></script>
 ```
 
-## Quick Start
+## Usage
 
 ```js
 const giphyRandom = require("giphy-random");
@@ -43,9 +37,9 @@ const giphyRandom = require("giphy-random");
 
 The `data` will contain a [GIF Object](https://developers.giphy.com/docs/#gif-object).
 
-To get your Giphy API key, sign up here: [developers.giphy.com/dashboard](https://developers.giphy.com/dashboard/?create=true).
+> To get your Giphy API key, sign up here: [developers.giphy.com/dashboard](https://developers.giphy.com/dashboard/?create=true).
 
-## Recipe
+## Recipes
 
 ### Filter by Tag
 
@@ -157,7 +151,7 @@ Note that there are many properties omitted from the example above. Check [Giphy
 
 ## License
 
-MIT © [Risan Bagja Pradana](https://bagja.net)
+[MIT](https://github.com/risan/giphy-random/blob/master/LICENSE) © [Risan Bagja Pradana](https://bagja.net)
 
 ## Legal
 
