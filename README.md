@@ -2,7 +2,6 @@
 
 [![Build Status](https://badgen.net/travis/risan/giphy-random)](https://travis-ci.org/risan/giphy-random)
 [![Test Covarage](https://badgen.net/codecov/c/github/risan/giphy-random)](https://codecov.io/gh/risan/giphy-random)
-[![Greenkeeper](https://badges.greenkeeper.io/risan/giphy-random.svg)](https://greenkeeper.io)
 [![Latest Version](https://badgen.net/npm/v/giphy-random)](https://www.npmjs.com/package/giphy-random)
 
 Get random GIF from [Giphy](https://giphy.com).
